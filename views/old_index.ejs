@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <!-- <h1><%= title %></h1> -->
+    <form method="post" action="">
+      <input type="text" placeholder="INSTA URL" name="insta_url">
+      <input type="submit" />
+      <!-- <%= download_url ? download_url : '' %> -->
+      <!-- <p>Click to download <a href=<%= title %>> CLICK ME </a></p> -->
+      <% if(download_url!=='' && download_url!=undefined) { %>
+      <p>Click to download <a href=<%= download_url %>> CLICK ME </a></p>
+      <% }%>
+    </form>
+
+  </body>
+</html>

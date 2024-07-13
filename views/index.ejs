@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <title>INSTA LOADER</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- End layout styles -->
+    <!-- <link rel="shortcut icon" href="../assets/images/favicon.png" /> -->
+
+    <style>
+        body {
+        touch-action: none;
+        }
+    </style>
+
+
+  </head>
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="row w-100 m-0">
+          <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+            <div class="card col-lg-4 mx-auto">
+              <div class="card-body px-5 py-5">
+                <h3 class="card-title text-center mb-3">INSTA DOWNLOADER</h3>
+                <form method="post" action="/">
+
+                    <% if(download_url=='') { %>
+                  <div class="form-group">
+                    <div class="input-group">
+                    <label>&nbsp;</label>
+                    <input type="text" class="form-control p_input" required placeholder="ENTER LINK" name="insta_url" onfocusout="validateURL(this)" onfocus="getSense()" >
+                    <div class="input-group-append">
+                            <button class="btn btn-sm btn-danger" id="video_get_btn" type="submit" onclick="getSense()" disabled="disabled">
+                                <i class="mdi mdi-instagram"></i> <span>GRAB VIDEO</span>
+                              </button>
+                             
+                          </button>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %>
+
+
+                  <!-- <div class="form-group">
+                    <label>Password *</label>
+                    <input type="text" class="form-control p_input">
+                  </div> -->
+                  <!-- <div class="form-group d-flex align-items-center justify-content-between">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input"> Remember me </label>
+                    </div>
+                    <a href="#" class="forgot-pass">Forgot password</a>
+                  </div> -->
+                  <!-- <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block enter-btn">GRAB VIDEO</button>
+                  </div> -->
+                  <% if(download_url!=='' && download_url!=undefined) { %>
+                  <div class="d-flex">
+                    <a class="btn-block enter-btn" href="<%= download_url %>" style="text-decoration: none; color:#efefef" onclick="getSense()">
+                    <button type="button"  class="btn btn-google col  btn-block enter-btn">
+                        DOWNLOAD
+                    </button>
+                    </a>
+                  </div>
+
+                  <% } %>
+                  <div class="d-flex">
+                    <a class="btn-block enter-btn" id="refresh_state" style="text-decoration: none; color:#efefef">
+                    <button type="button"  class="btn btn-google col  btn-block enter-btn" onclick="getSense()">
+                        GET ANOTHER
+                    </button>
+                    </a>
+                  </div>
+                 
+
+                  <p class="sign-up">&nbsp;</p>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- row ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../assets/js/off-canvas.js"></script>
+    <script src="../assets/js/hoverable-collapse.js"></script>
+    <script src="../assets/js/misc.js"></script>
+    <script src="../assets/js/settings.js"></script>
+    <script src="../assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <script>
+
+        $(document).ready(function(){
+            $("#refresh_state").click(function(){
+                window.location = window.location.href;
+            })
+        })
+
+
+        function validateURL(e){
+            let url = e.value;
+            console.log("FOCUS OUT", url)
+            let reg = /(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am)\/([A-Za-z0-9-_]+)/im;
+            if(e.value){
+                console.log(url.match(reg))
+                if(e.value.match(reg)){
+                    if(url.match(reg)){
+
+                        document.getElementById('video_get_btn').disabled = false;
+                    }else{
+                document.getElementById('video_get_btn').disabled = "disabled";
+
+                    }
+                }
+            }else{
+                document.getElementById('video_get_btn').disabled = "disabled";
+            }
+            // navigator.vibrate([400, 300, 400])
+            navigator.vibrate(100)
+        }
+
+        function getSense(){
+            navigator.vibrate(100)
+        }
+    </script>
+  
+  </body>
+</html>
